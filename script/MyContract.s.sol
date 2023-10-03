@@ -8,7 +8,7 @@ import {
     json,
     JsonObject,
     fs,
-    console,
+    println,
     request,
     Response
 } from "vulcan/script.sol";
@@ -40,6 +40,6 @@ contract DeployScript is Script {
             .send()
             .unwrap();
 
-            console.log(string(res.body));
+        println(string(res.body));
     }
 }
