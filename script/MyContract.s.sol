@@ -5,6 +5,7 @@ import {MyContract} from "src/MyContract.sol";
 import {
     Script,
     vulcan,
+    ctx,
     json,
     JsonObject,
     fs,
@@ -15,11 +16,11 @@ import {
 
 contract DeployScript is Script {
     function run() public {
-        vulcan.hevm.startBroadcast();
+        ctx.startBroadcast();
 
         new MyContract();
 
-        vulcan.hevm.stopBroadcast();
+        ctx.stopBroadcast();
 
         string memory source = fs.readFile("src/MyContract.sol").unwrap();
 
